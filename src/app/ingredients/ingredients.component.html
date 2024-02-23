@@ -1,0 +1,20 @@
+<!-- --------------------------------------------------Ingredient Section-------------------------------------------------- -->
+<section class="ingredient container">
+  <h2>Unleash the Magic of <span>Ingredients</span></h2>
+  <div class="ingredient-cards column">
+    <!-- -------------------------Ingredient Data------------------------- -->
+    <a
+      [routerLink]="['/ingredientFilter', ingredient.strIngredient]"
+      class="ingre-card row"
+      *ngFor="let ingredient of ingredients; let i = index"
+      (click)="onClick($event)"
+    >
+      <img src="{{ imgSrc[i] }}" alt="{{ ingredient.strIngredient }}" />
+      <div class="ingre-title">
+        <h3>{{ ingredient.strIngredient }}</h3>
+      </div>
+    </a>
+    <!-- -------------------------End of Ingredient Data------------------------- -->
+  </div>
+</section>
+<!-- --------------------------------------------------End of Ingredient Section-------------------------------------------------- -->

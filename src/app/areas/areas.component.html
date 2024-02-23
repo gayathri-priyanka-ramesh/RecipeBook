@@ -1,0 +1,20 @@
+<!-- --------------------------------------------------Cuisine Section-------------------------------------------------- -->
+<section class="area container">
+  <h2>Embark Exquisite <span>Cuisines</span></h2>
+  <div class="area-cards row">
+    <!-- -------------------------Cuisine Data------------------------- -->
+    <div class="area-content" *ngFor="let area of areas; let i = index">
+      <div class="area-img" [style.background-image]="'url(' + imgSrc[i] + ')'">
+        <a
+          [routerLink]="['/cuisineFilter', area.strArea]"
+          class="row"
+          (click)="onClick($event)"
+        >
+          <h3>{{ area.strArea }}</h3>
+        </a>
+      </div>
+    </div>
+    <!-- -------------------------Cuisine Data------------------------- -->
+  </div>
+</section>
+<!-- --------------------------------------------------End of Cuisine Section-------------------------------------------------- -->

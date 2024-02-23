@@ -1,0 +1,99 @@
+<!-- --------------------------------------------------Recipe Section-------------------------------------------------- -->
+<div class="component" #food>
+  <!-- --------------------------------------------------Invalid Type Search-------------------------------------------------- -->
+  <!-- -------------------------Invalid Search Modal Trigger Button------------------------- -->
+  <button
+    #openDialogBtn
+    class="dialog-button"
+    onclick="window.dialog.showModal();"
+  >
+    Open Dialog
+  </button>
+  <!-- -------------------------End of Invalid Search Modal Trigger sButton------------------------- -->
+
+  <!-- -------------------------Invalid Search Modal Content------------------------- -->
+  <dialog id="dialog">
+    <div class="dialog-area row">
+      <!-- -------------------------Modal Dismiss Button------------------------- -->
+      <div class="close-div">
+        <span
+          class="material-symbols-outlined menu-close"
+          aria-label="close"
+          type="button"
+          routerLink="/"
+        >
+          close
+        </span>
+      </div>
+      <!-- -------------------------End of Modal Dismiss Button------------------------- -->
+
+      <!-- -------------------------Modal Message------------------------- -->
+      <div class="invalidSearch invalid-recipe">
+        <h3>
+          Keyword doesn't quite match
+          <span class="material-symbols-outlined">
+            sentiment_dissatisfied
+          </span>
+        </h3>
+        <p>
+          Let's stir things up with a <span>Valid Keyword</span>, and let the
+          culinary adventure begin!
+        </p>
+      </div>
+    </div>
+    <!-- -------------------------End of Modal Message------------------------- -->
+  </dialog>
+  <!-- -------------------------End of Invalid Search Modal Content------------------------- -->
+  <!-- --------------------------------------------------End of Invalid Type Search-------------------------------------------------- -->
+
+  <!-- --------------------------------------------------Recipe Section Outlet (Valid Type Search)-------------------------------------------------- -->
+  <router-outlet />
+  <!-- --------------------------------------------------End of Recipe Section Outlet (Valid Type Search)-------------------------------------------------- -->
+</div>
+<!-- --------------------------------------------------End of Recipe Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Food Section-------------------------------------------------- -->
+<section class="foods container">
+  <div *ngIf="!invalidSearch">
+    <!-- -------------------------Food Type------------------------- -->
+    <!-- -------------------------Category------------------------- -->
+    <div *ngIf="category">
+      <h2>
+        Culinary Bounty of <span>{{ category }}</span>
+      </h2>
+    </div>
+    <!-- -------------------------Cuisine------------------------- -->
+    <div *ngIf="area">
+      <h2>
+        Gastronomic Delights of <span>{{ area }}</span>
+      </h2>
+    </div>
+    <!-- -------------------------Ingredient------------------------- -->
+    <div *ngIf="ingredient">
+      <h2>
+        Crafted with Essence of <span>{{ ingredient }}</span>
+      </h2>
+    </div>
+    <!-- -------------------------End of Food Type------------------------- -->
+
+    <!-- -------------------------Food Data------------------------- -->
+    <div class="food-cards column">
+      <a
+        [routerLink]="['/recipe', food.strMeal]"
+        routerLinkActive="active"
+        [queryParams]="{
+          categoryFilter: category,
+          cuisineFilter: area,
+          ingredientFilter: ingredient
+        }"
+        class="food-item"
+        *ngFor="let food of foods"
+      >
+        <img [src]="food.strMealThumb" alt="{{ food.strMeal }}" />
+        <h5>{{ food.strMeal }}</h5>
+      </a>
+    </div>
+    <!-- -------------------------End of Food Data------------------------- -->
+  </div>
+</section>
+<!-- --------------------------------------------------End of Food Section-------------------------------------------------- -->

@@ -1,0 +1,95 @@
+<!-- --------------------------------------------------Recipe Section-------------------------------------------------- -->
+<!-- --------------------------------------------------Recipe Modal Trigger Button-------------------------------------------------- -->
+<button
+  #openDialogBtn
+  class="dialog-button"
+  onclick="window.dialog.showModal();"
+>
+  Open Dialog
+</button>
+<!-- --------------------------------------------------End of Recipe Modal Trigger Button-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Recipe Modal-------------------------------------------------- -->
+<dialog id="dialog">
+  <div class="dialog-area row">
+    <!-- -------------------------Modal Dismiss Button------------------------- -->
+    <div class="close-div">
+      <span
+        class="material-symbols-outlined menu-close"
+        aria-label="close"
+        type="button"
+        (click)="onCloseDialog()"
+      >
+        close
+      </span>
+    </div>
+    <!-- -------------------------End of Modal Dismiss Button------------------------- -->
+
+    <!-- -------------------------Invalid Food Search------------------------- -->
+    <div *ngIf="noRecipe" class="invalidSearch invalid-recipe">
+      <h3>
+        Keyword doesn't quite match
+        <span class="material-symbols-outlined"> sentiment_dissatisfied </span>
+      </h3>
+      <p>
+        Let's stir things up with a <span>Valid Keyword</span>, and let the
+        culinary adventure begin!
+      </p>
+    </div>
+    <!-- -------------------------End of Invalid Food Search------------------------- -->
+
+    <!-- -------------------------Valid Food Search------------------------- -->
+    <section class="recipe container" *ngIf="recipe">
+      <!-- -------------------------Recipe Title------------------------- -->
+      <h2>
+        Crafting the Perfect <span>{{ recipe.strMeal }}</span> !
+      </h2>
+      <!-- -------------------------End of Recipe Title------------------------- -->
+
+      <!-- -------------------------Recipe Body------------------------- -->
+      <div class="recipe-content">
+        <!-- -------------------------Ingredient List------------------------- -->
+        <div class="recipe-food row">
+          <div class="recipe-ingredients">
+            <h4>Ingredients</h4>
+            <ul>
+              <li
+                *ngFor="let ingredient of ingredients; let i = index"
+                class="row"
+              >
+                <p>
+                  <span class="material-symbols-outlined">
+                    restaurant_menu </span
+                  >{{ ingredient }}
+                </p>
+                <p>{{ measures[i] }}</p>
+              </li>
+            </ul>
+          </div>
+          <div class="recipe-img">
+            <img [src]="recipe.strMealThumb" alt="{{ recipe.strMeal }}" />
+          </div>
+        </div>
+        <!-- -------------------------End of Ingredient List------------------------- -->
+
+        <!-- -------------------------Recipe Info------------------------- -->
+        <div class="recipe-description">
+          <div class="row recipe-info">
+            <p>
+              Category: <span>{{ recipe.strCategory }}</span>
+            </p>
+            <p>
+              Cuisine: <span>{{ recipe.strArea }}</span>
+            </p>
+          </div>
+          <p>{{ recipe.strInstructions }}</p>
+        </div>
+        <!-- -------------------------End of Recipe Info------------------------- -->
+      </div>
+      <!-- -------------------------End of Recipe Body------------------------- -->
+    </section>
+    <!-- -------------------------End of Valid Food Search------------------------- -->
+  </div>
+</dialog>
+<!-- --------------------------------------------------End of Recipe Modal-------------------------------------------------- -->
+<!-- --------------------------------------------------End of Recipe Section-------------------------------------------------- -->

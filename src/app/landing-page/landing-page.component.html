@@ -1,0 +1,254 @@
+<!-- --------------------------------------------------Header-------------------------------------------------- -->
+<header class="row">
+  <!-- -------------------------Brand------------------------- -->
+  <a routerLink="/" class="logo">
+    <img
+      src="../../assets/images/culinary-chronicles-logo.png"
+      alt="Culinary Chronicles Logo"
+    />
+  </a>
+  <!-- -------------------------End of Brand------------------------- -->
+
+  <!-- -------------------------Navigation------------------------- -->
+  <!-- -------------------------Navigation Menu Toogle------------------------- -->
+  <div class="toggleMenu" (click)="toggleMenu()">
+    <span class="material-symbols-outlined menu-open"> menu_open </span>
+    <span class="material-symbols-outlined menu-close"> close </span>
+  </div>
+  <!-- -------------------------End of Navigation Menu Toogle------------------------- -->
+
+  <!-- -------------------------Navigation Links------------------------- -->
+  <nav class="navigation row" (click)="navigationClose()">
+    <div class="row">
+      <ul class="row">
+        <!-- -------------------------Home------------------------- -->
+        <li>
+          <a
+            (click)="scroll('home')"
+            [ngClass]="{ active: activeSection === 'home' }"
+            >Home</a
+          >
+        </li>
+        <!-- -------------------------Categories------------------------- -->
+        <li>
+          <a
+            (click)="scroll('categories')"
+            [ngClass]="{ active: activeSection === 'categories' }"
+            >Categories</a
+          >
+        </li>
+        <!-- -------------------------Cuisines------------------------- -->
+        <li>
+          <a
+            (click)="scroll('cuisines')"
+            [ngClass]="{ active: activeSection === 'cuisines' }"
+            >Cuisine</a
+          >
+        </li>
+        <!-- -------------------------Ingredients------------------------- -->
+        <li>
+          <a
+            (click)="scroll('ingredients')"
+            [ngClass]="{ active: activeSection === 'ingredients' }"
+            >Ingredients</a
+          >
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- -------------------------End of Navigation Links------------------------- -->
+  <!-- -------------------------End of Navigation------------------------- -->
+</header>
+<!-- --------------------------------------------------End of Header-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Hero Section-------------------------------------------------- -->
+<section class="hero" #home>
+  <div class="container row">
+    <div class="hero-content">
+      <div class="content">
+        <!-- -------------------------About------------------------- -->
+        <h1>Unleash Your <span>Inner Chef</span> !</h1>
+        <h2>Search <span>Cook</span> and Delight !</h2>
+        <p>
+          Explore, Create, and Savor with <span>Culinary Chronicles</span>.
+          Whether you're craving a cozy comfort food or an exotic culinary
+          journey, our vast recipe library has you covered.
+        </p>
+        <!-- -------------------------End of About------------------------- -->
+
+        <!-- --------------------------------------------------Search Form-------------------------------------------------- -->
+        <form #searchForm="ngForm" (ngSubmit)="search(searchForm)">
+          <!-- -------------------------Search Input Field------------------------- -->
+          <div class="search-area row">
+            <input
+              type="text"
+              placeholder="Eg: Starter, Indian, Chicken, Curry ..."
+              [(ngModel)]="searchQuery"
+              name="searchQuery"
+              required
+            />
+            <button type="submit" class="material-symbols-outlined">
+              search
+            </button>
+          </div>
+          <!-- -------------------------End of Search Input Field------------------------- -->
+
+          <!-- -------------------------Form Validation Warning------------------------- -->
+          <div class="validation"></div>
+          <!-- -------------------------End of Form Validation Warning------------------------- -->
+
+          <!-- -------------------------End of Search Options------------------------- -->
+          <div class="choices row">
+            <!-- -------------------------Category------------------------- -->
+            <label>
+              <input
+                type="radio"
+                name="searchType"
+                value="category"
+                ngModel
+                #searchType="ngModel"
+                required
+              />
+              Category
+            </label>
+            <!-- -------------------------Cuisine------------------------- -->
+            <label>
+              <input
+                type="radio"
+                name="searchType"
+                value="area"
+                ngModel
+                #searchType="ngModel"
+                required
+              />
+              Cuisine
+            </label>
+            <!-- -------------------------Ingredient------------------------- -->
+            <label>
+              <input
+                type="radio"
+                name="searchType"
+                value="ingredient"
+                ngModel
+                #searchType="ngModel"
+                required
+              />
+              Ingredient
+            </label>
+            <!-- -------------------------Food------------------------- -->
+            <label>
+              <input
+                type="radio"
+                name="searchType"
+                value="food"
+                ngModel
+                #searchType="ngModel"
+                required
+              />
+              Food
+            </label>
+          </div>
+          <!-- -------------------------End of Search Options------------------------- -->
+        </form>
+        <!-- --------------------------------------------------End of Search Form-------------------------------------------------- -->
+
+        <!-- -------------------------Sub-About------------------------- -->
+        <p>
+          Dive into a <span>World of Flavor Adventures !</span> Search by
+          category, cuisine, ingredient, or food name to discover your next
+          culinary masterpiece !
+        </p>
+        <!-- -------------------------End of Sub-About------------------------- -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- --------------------------------------------------End of Hero Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Food Section-------------------------------------------------- -->
+<div class="component" #food>
+  <router-outlet />
+</div>
+<!-- --------------------------------------------------End of Food Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Category Section-------------------------------------------------- -->
+<div class="component" #categories>
+  <app-categories (scrollClick)="scroll('food')"></app-categories>
+</div>
+<!-- --------------------------------------------------End of Category Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Cuisine Section-------------------------------------------------- -->
+<div class="component" #cuisines>
+  <app-areas (scrollClick)="scroll('food')"></app-areas>
+</div>
+<!-- --------------------------------------------------End of Cuisine Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Ingredient Section-------------------------------------------------- -->
+<div class="component" #ingredients>
+  <app-ingredients (scrollClick)="scroll('food')"></app-ingredients>
+</div>
+<!-- --------------------------------------------------End of Ingredient Section-------------------------------------------------- -->
+
+<!-- --------------------------------------------------Footer-------------------------------------------------- -->
+<footer>
+  <hr />
+  <!-- -------------------------Brand and Navigation------------------------- -->
+  <div class="footer row container">
+    <!-- -------------------------Brand------------------------- -->
+    <a routerLink="/" class="logo">
+      <img
+        src="../../assets/images/culinary-chronicles-logo.png"
+        alt="Culinary Chronicles Logo"
+      />
+      <p>Where Every Recipe Tells a Delicious Story!</p>
+    </a>
+    <!-- -------------------------End of Brand------------------------- -->
+
+    <!-- -------------------------Navigation------------------------- -->
+    <nav class="navigation row">
+      <ul class="row">
+        <!-- -------------------------Home------------------------- -->
+        <li>
+          <a
+            (click)="scroll('home')"
+            [ngClass]="{ active: activeSection === 'home' }"
+            >Home</a
+          >
+        </li>
+        <!-- -------------------------Categories------------------------- -->
+        <li>
+          <a
+            (click)="scroll('categories')"
+            [ngClass]="{ active: activeSection === 'categories' }"
+            >Categories</a
+          >
+        </li>
+        <!-- -------------------------Cuisines------------------------- -->
+        <li>
+          <a
+            (click)="scroll('cuisines')"
+            [ngClass]="{ active: activeSection === 'cuisines' }"
+            >Cuisine</a
+          >
+        </li>
+        <!-- -------------------------Ingredients------------------------- -->
+        <li>
+          <a
+            (click)="scroll('ingredients')"
+            [ngClass]="{ active: activeSection === 'ingredients' }"
+            >Ingredients</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- -------------------------End of Navigation------------------------- -->
+  </div>
+  <!-- -------------------------End of Brand and Navigation------------------------- -->
+
+  <!-- -------------------------Copy Rights------------------------- -->
+  <p class="copy-rights">
+    &copy; Culinary Chronicles 2024. All Rights Reserved
+  </p>
+  <!-- -------------------------End of Copy Rights------------------------- -->
+</footer>
+<!-- --------------------------------------------------End of Footer-------------------------------------------------- -->
