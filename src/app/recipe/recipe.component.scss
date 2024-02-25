@@ -1,0 +1,156 @@
+@import "../../variables";
+
+// --------------------------------------------------Recipe Section--------------------------------------------------
+// -------------------------Dialog Button-------------------------
+.dialog-button {
+  display: none;
+}
+// -------------------------End of Dialog Button-------------------------
+
+// -------------------------Dialog-------------------------
+dialog {
+  border-radius: 20px;
+  background: $White;
+  border: none;
+  width: fit-content;
+  margin: auto;
+  box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+  animation: fadeIn 1s ease both;
+  .dialog-area {
+    flex-direction: column;
+    .close-div {
+      align-self: flex-end;
+      cursor: pointer;
+      margin-bottom: 0.25em;
+      span {
+        font-size: 25px;
+      }
+    }
+  }
+  &::backdrop {
+    animation: fadeIn 1s ease both;
+    z-index: 2;
+    backdrop-filter: blur(3px);
+  }
+}
+// -------------------------End of Dialog-------------------------
+
+// -------------------------Valid Recipe-------------------------
+.recipe {
+  .recipe-content {
+    .recipe-food {
+      margin-bottom: 1em;
+      align-items: center;
+      gap: 1em;
+      width: 100%;
+      .recipe-ingredients {
+        border: 1px solid $Red;
+        padding: 1em;
+        max-width: 700px;
+        min-width: 250px;
+        margin: auto;
+        h4 {
+          text-align: center;
+          font-size: 25px;
+          font-weight: 600;
+          margin-bottom: 0.5em;
+        }
+        ul {
+          li {
+            text-transform: capitalize;
+            font-weight: 600;
+            justify-content: space-between;
+          }
+        }
+        span {
+          font-size: 16px;
+          margin-right: 0.5em;
+        }
+      }
+      .recipe-img {
+        width: 50%;
+        text-align: center;
+        img {
+          border-radius: 50% !important;
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+    }
+    .recipe-description {
+      width: 100%;
+      text-align: justify;
+      .recipe-info {
+        justify-content: space-between;
+        margin-bottom: 1em;
+        p {
+          font-weight: 600;
+          font-size: 18px;
+          color: $Blue;
+        }
+      }
+      > p {
+        text-indent: 3em;
+        font-family: $Body;
+        color: $Black;
+      }
+    }
+  }
+}
+// -------------------------End of Valid Recipe-------------------------
+
+// -------------------------Invalid Recipe-------------------------
+.invalid-recipe {
+  width: 350px;
+  h3 {
+    color: $Red;
+    span {
+      color: inherit;
+    }
+  }
+  p {
+    color: $Black;
+    font-family: $Body;
+    span {
+      color: $Blue;
+    }
+  }
+}
+// -------------------------End of Invalid Recipe-------------------------
+// --------------------------------------------------End of Recipe Section--------------------------------------------------
+
+// --------------------------------------------------Responsiveness-------------------------------------------------
+@media screen and (max-width: 550px) {
+  .recipe {
+    .recipe-content {
+      .recipe-food {
+        flex-direction: column;
+        .recipe-ingredients,
+        .recipe-img {
+          width: 100%;
+        }
+      }
+      .recipe-description {
+        .recipe-info {
+          flex-direction: column;
+          gap: 0.5em;
+        }
+      }
+    }
+  }
+  .invalid-recipe {
+    width: 250px;
+  }
+}
+@media screen and (max-width: 300px) {
+  .recipe {
+    .recipe-content {
+      .recipe-food {
+        .recipe-ingredients {
+          min-width: unset;
+        }
+      }
+    }
+  }
+}
+// --------------------------------------------------End of Responsiveness-------------------------------------------------
