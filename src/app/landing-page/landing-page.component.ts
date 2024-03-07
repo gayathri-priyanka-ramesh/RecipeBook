@@ -40,15 +40,15 @@ export class LandingPageComponent implements AfterViewInit {
   // -------------------------Navigation Menu Close-------------------------
   navigationClose() {
     if (this.toggleMenuOpen) {
-      console.log('Toogle Menu is not Closed  ---> ', this.toggleMenuOpen);
+      // console.log('Toogle Menu is not Closed  ---> ', this.toggleMenuOpen);
       const toggleMenu = document.querySelector('.toggleMenu');
       const navigation = document.querySelector('.navigation');
       toggleMenu?.classList.toggle('active');
       navigation?.classList.toggle('active');
       this.toggleMenuOpen = false;
-      console.log('Navigation Close Successful');
+      // console.log('Navigation Close Successful');
     } else {
-      console.log('Toogle Menu is not Open  ---> ', this.toggleMenuOpen);
+      // console.log('Toogle Menu is not Open  ---> ', this.toggleMenuOpen);
     }
   }
   // --------------------------------------------------End of Navigation--------------------------------------------------
@@ -61,9 +61,9 @@ export class LandingPageComponent implements AfterViewInit {
   // -------------------------Scroll to Active Section-------------------------
   scroll(section: string): void {
     this.activeSection = section;
-    console.log('Active Section  ---> ', this.activeSection);
+    // console.log('Active Section  ---> ', this.activeSection);
     const targetElement = this[section as keyof LandingPageComponent];
-    console.log('Target Element  ---> ', targetElement);
+    // console.log('Target Element  ---> ', targetElement);
     if (targetElement) {
       targetElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
     }
@@ -74,33 +74,33 @@ export class LandingPageComponent implements AfterViewInit {
   search(form: NgForm): void {
     // -------------------------Form Values-------------------------
     console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Search~~~~~~~~~~~~~~~~~~~~~~~~~');
-    console.log('Form Object  ---> ', form);
-    console.log('Values of Form  ---> ', form.value);
+    // console.log('Form Object  ---> ', form);
+    // console.log('Values of Form  ---> ', form.value);
     this.searchQuery = form.value.searchQuery;
-    console.log('SearchQuery  ---> ', this.searchQuery);
+    // console.log('SearchQuery  ---> ', this.searchQuery);
     this.searchType = form.value.searchType;
-    console.log('SearchType  ---> ', this.searchType);
+    // console.log('SearchType  ---> ', this.searchType);
 
     // -------------------------Valid Submit-------------------------
     if (this.searchQuery && this.searchType) {
       switch (this.searchType) {
         case 'category':
-          console.log('Category Search');
+          // console.log('Category Search');
           this.router.navigate(['categorySearch', this.searchQuery]);
           form.reset();
           break;
         case 'area':
-          console.log('Area Search');
+          // console.log('Area Search');
           this.router.navigate(['/cuisineSearch', this.searchQuery]);
           form.reset();
           break;
         case 'ingredient':
-          console.log('Ingredient Search');
+          // console.log('Ingredient Search');
           this.router.navigate(['/ingredientSearch', this.searchQuery]);
           form.reset();
           break;
         case 'food':
-          console.log('Food Search');
+          // console.log('Food Search');
           this.router.navigate(['/recipe', this.searchQuery]);
           form.reset();
           break;
@@ -110,7 +110,7 @@ export class LandingPageComponent implements AfterViewInit {
     // -------------------------Invalid Submit Validation-------------------------
     else {
       this.validation = document.querySelector('.validation') as HTMLDivElement;
-      console.log('Invalid Search');
+      // console.log('Invalid Search');
       if (this.searchQuery && this.searchType == '') {
         this.validation.innerHTML = 'Please choose the type to search';
       } else if (!this.searchQuery && this.searchType != '') {

@@ -25,28 +25,28 @@ export class FoodComponent implements OnInit {
   // --------------------------------------------------Retrieve Food Data Based on Type--------------------------------------------------
   ngOnInit(): void {
     // -------------------------Retrieve Food Type-------------------------
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Food~~~~~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Food~~~~~~~~~~~~~~~~~~~~~~~~~');
     this.category = this.route.snapshot.paramMap.get('category') as string;
-    console.log('Route Parameter - Category  ---> ', this.category);
+    // console.log('Route Parameter - Category  ---> ', this.category);
     this.area = this.route.snapshot.paramMap.get('area') as string;
-    console.log('Route Parameter - Area  ---> ', this.area);
+    // console.log('Route Parameter - Area  ---> ', this.area);
     this.ingredient = this.route.snapshot.paramMap.get('ingredient') as string;
-    console.log('Route Parameter - Ingredient  ---> ', this.ingredient);
+    // console.log('Route Parameter - Ingredient  ---> ', this.ingredient);
 
     // -------------------------Retrieve Food Data Based on Category-------------------------
     if (this.category) {
       this.apiService
         .getFoodsByCategory(this.category)
         .subscribe((data: any) => {
-          console.log('~~~~~~~~~~Filter by Category~~~~~~~~~~');
-          console.log('Data  ---> ', data);
+          // console.log('~~~~~~~~~~Filter by Category~~~~~~~~~~');
+          // console.log('Data  ---> ', data);
           this.foods = data.meals;
-          console.log('Food  ---> ', this.foods);
+          // console.log('Food  ---> ', this.foods);
           if (!this.foods) {
-            console.log('Food not available in Category');
+            // console.log('Food not available in Category');
             this.invalidSearch = true;
             this.openDialogBtn.nativeElement.click();
-            console.log('Dialog Opened');
+            // console.log('Dialog Opened');
           }
         });
     }
@@ -54,15 +54,15 @@ export class FoodComponent implements OnInit {
     // -------------------------Retrieve Food Data Based on Cuisine-------------------------
     else if (this.area) {
       this.apiService.getFoodsByArea(this.area).subscribe((data: any) => {
-        console.log('~~~~~~~~~~Filter by Area~~~~~~~~~~');
-        console.log('Data  ---> ', data);
+        // console.log('~~~~~~~~~~Filter by Area~~~~~~~~~~');
+        // console.log('Data  ---> ', data);
         this.foods = data.meals;
-        console.log('Food  ---> ', this.foods);
+        // console.log('Food  ---> ', this.foods);
         if (!this.foods) {
-          console.log('Food not available in Area');
+          // console.log('Food not available in Area');
           this.invalidSearch = true;
           this.openDialogBtn.nativeElement.click();
-          console.log('Dialog Opened');
+          // console.log('Dialog Opened');
         }
       });
     }
@@ -72,15 +72,15 @@ export class FoodComponent implements OnInit {
       this.apiService
         .getFoodsByIngredient(this.ingredient)
         .subscribe((data: any) => {
-          console.log('~~~~~~~~~~Filter by Ingredient~~~~~~~~~~');
-          console.log('Data  ---> ', data);
+          // console.log('~~~~~~~~~~Filter by Ingredient~~~~~~~~~~');
+          // console.log('Data  ---> ', data);
           this.foods = data.meals;
-          console.log('Food  ---> ', this.foods);
+          // console.log('Food  ---> ', this.foods);
           if (!this.foods) {
-            console.log('Food not available in Ingredient');
+            // console.log('Food not available in Ingredient');
             this.invalidSearch = true;
             this.openDialogBtn.nativeElement.click();
-            console.log('Dialog Opened');
+            // console.log('Dialog Opened');
           }
         });
     }

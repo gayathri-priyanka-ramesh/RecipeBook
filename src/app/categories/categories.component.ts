@@ -20,22 +20,22 @@ export class CategoriesComponent implements OnInit {
 
   // --------------------------------------------------GET Ingredient List--------------------------------------------------
   ngOnInit(): void {
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Categories~~~~~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Categories~~~~~~~~~~~~~~~~~~~~~~~~~');
     this.apiService.getCategories().subscribe((data: any) => {
-      console.log('Data  ---> ', data);
+      // console.log('Data  ---> ', data);
       this.categories = data.categories;
-      console.log('Categories  ---> ', this.categories);
+      // console.log('Categories  ---> ', this.categories);
       for (let i of this.categories) {
         this.imgSrc.push(`../../assets/images/categories/${i.strCategory}.png`);
       }
-      console.log('ImgSrc  ---> ', this.imgSrc);
+      // console.log('ImgSrc  ---> ', this.imgSrc);
     });
   }
   // --------------------------------------------------End of GET Ingredient List--------------------------------------------------
 
   // --------------------------------------------------Emit Ingredient Click--------------------------------------------------
   onClick(event: any) {
-    console.log('Category Click');
+    // console.log('Category Click');
     this.scrollClick.emit();
   }
   // --------------------------------------------------End of Emit Ingredient Click--------------------------------------------------

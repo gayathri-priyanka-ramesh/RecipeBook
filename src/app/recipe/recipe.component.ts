@@ -34,33 +34,33 @@ export class RecipeComponent implements OnInit {
     let foodName: string = this.route.snapshot.paramMap.get(
       'foodName'
     ) as string;
-    console.log('Food Name  ---> ', foodName);
+    // console.log('Food Name  ---> ', foodName);
 
     // -------------------------Required Food Type-------------------------
     this.currentCategory = this.route.snapshot.queryParamMap.get(
       'categoryFilter'
     ) as string;
-    console.log('Current Category  ---> ', this.currentCategory);
+    // console.log('Current Category  ---> ', this.currentCategory);
     this.currentCuisine = this.route.snapshot.queryParamMap.get(
       'cuisineFilter'
     ) as string;
-    console.log('Current Cuisine  ---> ', this.currentCuisine);
+    // console.log('Current Cuisine  ---> ', this.currentCuisine);
     this.currentIngredient = this.route.snapshot.queryParamMap.get(
       'ingredientFilter'
     ) as string;
-    console.log('Current Ingredient  ---> ', this.currentIngredient);
+    // console.log('Current Ingredient  ---> ', this.currentIngredient);
     // --------------------------------------------------End of Required Data Retrival--------------------------------------------------
 
     // --------------------------------------------------GET Required Recipe--------------------------------------------------
     this.apiService.getRecipeByName(foodName).subscribe((data: any) => {
       // -------------------------Recipe Data-------------------------
-      console.log('Data  ---> ', data);
-      console.log('Meals  ---> ', data.meals);
+      // console.log('Data  ---> ', data);
+      // console.log('Meals  ---> ', data.meals);
 
       // -------------------------Recipe Available-------------------------
       if (data.meals) {
         this.recipe = data.meals[0];
-        console.log('Recipe  ---> ', this.recipe);
+        // console.log('Recipe  ---> ', this.recipe);
         for (let i = 1; i <= 20; i++) {
           const ingredientKey = 'strIngredient' + i;
           const ingredient = this.recipe[ingredientKey];
@@ -71,18 +71,18 @@ export class RecipeComponent implements OnInit {
             this.measures.push(measure);
           }
         }
-        console.log('Ingredients Array  ---> ', this.ingredients);
-        console.log('Measures Array  ---> ', this.measures);
+        // console.log('Ingredients Array  ---> ', this.ingredients);
+        // console.log('Measures Array  ---> ', this.measures);
       }
       // -------------------------Recipe Not Available-------------------------
       else {
         this.noRecipe = true;
-        console.log('Recipe not available');
+        // console.log('Recipe not available');
       }
 
       // -------------------------Trigger Recipe Modal-------------------------
       this.openDialogBtn.nativeElement.click();
-      console.log('Dialog Opened');
+      // console.log('Dialog Opened');
     });
     // --------------------------------------------------End of GET Required Recipe--------------------------------------------------
   }

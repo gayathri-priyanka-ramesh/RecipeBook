@@ -20,22 +20,22 @@ export class AreasComponent implements OnInit {
 
   // --------------------------------------------------GET Cuisine List--------------------------------------------------
   ngOnInit(): void {
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Areas~~~~~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Areas~~~~~~~~~~~~~~~~~~~~~~~~~');
     this.apiService.getAreas().subscribe((data: any) => {
-      console.log('Data  ---> ', data);
+      // console.log('Data  ---> ', data);
       this.areas = data.meals;
-      console.log('Areas  ---> ', this.areas);
+      // console.log('Areas  ---> ', this.areas);
       for (let i of this.areas) {
         this.imgSrc.push(`../../assets/images/cuisines/${i.strArea}.jpg`);
       }
-      console.log('ImgSrc  ---> ', this.imgSrc);
+      // console.log('ImgSrc  ---> ', this.imgSrc);
     });
   }
   // --------------------------------------------------End of GET Cuisine List--------------------------------------------------
 
   // --------------------------------------------------Emit Cuisine Click--------------------------------------------------
   onClick(event: any) {
-    console.log('Area Click');
+    // console.log('Area Click  ---> ',event);
     this.scrollClick.emit();
   }
   // --------------------------------------------------End of Emit Cuisine Click--------------------------------------------------

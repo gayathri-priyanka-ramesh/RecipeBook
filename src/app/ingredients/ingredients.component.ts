@@ -20,27 +20,27 @@ export class IngredientsComponent implements OnInit {
 
   // --------------------------------------------------GET Ingredient List--------------------------------------------------
   ngOnInit(): void {
-    console.log(
-      '~~~~~~~~~~~~~~~~~~~~~~~~~Ingredients~~~~~~~~~~~~~~~~~~~~~~~~~'
-    );
+    // console.log(
+    //   '~~~~~~~~~~~~~~~~~~~~~~~~~Ingredients~~~~~~~~~~~~~~~~~~~~~~~~~'
+    // );
     this.apiService.getIngredients().subscribe((data: any) => {
-      console.log('Data  ---> ', data);
+      // console.log('Data  ---> ', data);
       this.ingredients = data.meals.slice(0, 15);
-      console.log('Ingredients  ---> ', this.ingredients);
+      // console.log('Ingredients  ---> ', this.ingredients);
       // -------------------------Set Ingredient Image Source-------------------------
       for (let i of this.ingredients) {
         this.imgSrc.push(
           `../../assets/images/ingredients/${i.strIngredient}.png`
         );
       }
-      console.log('ImgSrc  ---> ', this.imgSrc);
+      // console.log('ImgSrc  ---> ', this.imgSrc);
     });
   }
   // --------------------------------------------------End of GET Ingredient List--------------------------------------------------
 
   // --------------------------------------------------Emit Ingredient Click--------------------------------------------------
   onClick(event: any) {
-    console.log('Category Click  ---> ', event);
+    // console.log('Category Click  ---> ', event);
     this.scrollClick.emit();
   }
   // --------------------------------------------------End of Emit Ingredient Click--------------------------------------------------
