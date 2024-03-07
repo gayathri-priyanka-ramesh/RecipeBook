@@ -19,9 +19,9 @@ export class LandingPageComponent implements AfterViewInit {
 
   // -------------------------Component Info-------------------------
   activeSection: string;
-  searchQuery: string;
-  searchType: any;
-  validation: HTMLDivElement;
+  searchQuery: string = '';
+  validationMessage: string = '';
+  searchType: string = '';
   toggleMenuOpen: boolean = false;
   // -------------------------End of Component Info-------------------------
 
@@ -35,7 +35,7 @@ export class LandingPageComponent implements AfterViewInit {
     toggleMenu?.classList.toggle('active');
     navigation?.classList.toggle('active');
     this.toggleMenuOpen = true;
-    console.log('Toggle Clicked');
+    // console.log('Toggle Clicked');
   }
   // -------------------------Navigation Menu Close-------------------------
   navigationClose() {
@@ -62,7 +62,7 @@ export class LandingPageComponent implements AfterViewInit {
   scroll(section: string): void {
     this.activeSection = section;
     // console.log('Active Section  ---> ', this.activeSection);
-    const targetElement = this[section as keyof LandingPageComponent];
+    const targetElement: any = this[section as keyof LandingPageComponent];
     // console.log('Target Element  ---> ', targetElement);
     if (targetElement) {
       targetElement.nativeElement.scrollIntoView({ behavior: 'smooth' });
@@ -73,7 +73,7 @@ export class LandingPageComponent implements AfterViewInit {
   // --------------------------------------------------Recipe Search--------------------------------------------------
   search(form: NgForm): void {
     // -------------------------Form Values-------------------------
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Search~~~~~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Search~~~~~~~~~~~~~~~~~~~~~~~~~');
     // console.log('Form Object  ---> ', form);
     // console.log('Values of Form  ---> ', form.value);
     this.searchQuery = form.value.searchQuery;
@@ -86,17 +86,20 @@ export class LandingPageComponent implements AfterViewInit {
       switch (this.searchType) {
         case 'category':
           // console.log('Category Search');
-          this.router.navigate(['categorySearch', this.searchQuery]);
+          this.router.navigate(['/categorySearch', this.searchQuery]);
+          this.food.nativeElement.scrollIntoView({ behaviour: 'smooth' });
           form.reset();
           break;
         case 'area':
           // console.log('Area Search');
           this.router.navigate(['/cuisineSearch', this.searchQuery]);
+          this.food.nativeElement.scrollIntoView({ behaviour: 'smooth' });
           form.reset();
           break;
         case 'ingredient':
           // console.log('Ingredient Search');
           this.router.navigate(['/ingredientSearch', this.searchQuery]);
+          this.food.nativeElement.scrollIntoView({ behaviour: 'smooth' });
           form.reset();
           break;
         case 'food':
@@ -109,17 +112,21 @@ export class LandingPageComponent implements AfterViewInit {
 
     // -------------------------Invalid Submit Validation-------------------------
     else {
-      this.validation = document.querySelector('.validation') as HTMLDivElement;
       // console.log('Invalid Search');
+      // console.log(
+      //   `SearchQuery -> ${this.searchQuery}  -----  SearchType -> ${this.searchType}`
+      // );
       if (this.searchQuery && this.searchType == '') {
-        this.validation.innerHTML = 'Please choose the type to search';
+        this.validationMessage = 'Please choose the type to search';
       } else if (!this.searchQuery && this.searchType != '') {
-        this.validation.innerHTML = 'Please enter the item to search';
+        this.validationMessage = 'Please enter the item to search';
       } else if (!this.searchQuery && this.searchType == '') {
-        this.validation.innerHTML =
-          'Please enter the item and its type to search';
+        this.validationMessage = 'Please enter the item and its type to search';
       }
     }
+  }
+  clearValidation(): void {
+    this.validationMessage = '';
   }
   // --------------------------------------------------End of Recipe Search--------------------------------------------------
 

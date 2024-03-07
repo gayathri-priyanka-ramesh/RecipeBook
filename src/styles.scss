@@ -74,3 +74,58 @@ section {
   scroll-margin-top: 7em;
 }
 // --------------------------------------------------End of Common Styles--------------------------------------------------
+
+// --------------------------------------------------Recipe Dialog--------------------------------------------------
+// -------------------------Dialog Button-------------------------
+.dialog-button {
+  display: none;
+}
+// -------------------------End of Dialog Button-------------------------
+
+// -------------------------Dialog-------------------------
+dialog {
+  border-radius: 20px;
+  background: $White;
+  border: none;
+  width: fit-content;
+  margin: auto;
+  box-shadow: 0 5px 30px 0 rgb(0 0 0 / 10%);
+  animation: fadeIn 1s ease both;
+  .dialog-area {
+    flex-direction: column;
+    .close-div {
+      align-self: flex-end;
+      cursor: pointer;
+      margin-bottom: 0.25em;
+      span {
+        font-size: 25px;
+      }
+    }
+  }
+  &::backdrop {
+    animation: fadeIn 1s ease both;
+    z-index: 2;
+    backdrop-filter: blur(3px);
+  }
+}
+// -------------------------End of Dialog-------------------------
+
+// -------------------------Invalid Recipe-------------------------
+.invalid-recipe {
+  width: 350px;
+  h3 {
+    color: $Red;
+    span {
+      color: inherit;
+    }
+  }
+  p {
+    color: $Black;
+    font-family: $Body;
+    span {
+      color: $Blue;
+    }
+  }
+}
+// -------------------------End of Invalid Recipe-------------------------
+// --------------------------------------------------End of Recipe Dialog--------------------------------------------------

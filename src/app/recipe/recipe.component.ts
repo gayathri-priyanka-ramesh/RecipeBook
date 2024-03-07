@@ -30,7 +30,7 @@ export class RecipeComponent implements OnInit {
 
   ngOnInit(): void {
     // --------------------------------------------------Required Data Retrival--------------------------------------------------
-    console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Recipe~~~~~~~~~~~~~~~~~~~~~~~~~');
+    // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Recipe~~~~~~~~~~~~~~~~~~~~~~~~~');
     let foodName: string = this.route.snapshot.paramMap.get(
       'foodName'
     ) as string;

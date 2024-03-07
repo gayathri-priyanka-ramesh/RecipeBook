@@ -18,7 +18,7 @@ export class CategoriesComponent implements OnInit {
 
   constructor(private apiService: ApiService) {}
 
-  // --------------------------------------------------GET Ingredient List--------------------------------------------------
+  // --------------------------------------------------GET Category List--------------------------------------------------
   ngOnInit(): void {
     // console.log('~~~~~~~~~~~~~~~~~~~~~~~~~Categories~~~~~~~~~~~~~~~~~~~~~~~~~');
     this.apiService.getCategories().subscribe((data: any) => {
@@ -31,12 +31,12 @@ export class CategoriesComponent implements OnInit {
       // console.log('ImgSrc  ---> ', this.imgSrc);
     });
   }
-  // --------------------------------------------------End of GET Ingredient List--------------------------------------------------
+  // --------------------------------------------------End of GET Category List--------------------------------------------------
 
-  // --------------------------------------------------Emit Ingredient Click--------------------------------------------------
+  // --------------------------------------------------Emit Category Click--------------------------------------------------
   onClick(event: any) {
     // console.log('Category Click');
     this.scrollClick.emit();
   }
-  // --------------------------------------------------End of Emit Ingredient Click--------------------------------------------------
+  // --------------------------------------------------End of Emit Category Click--------------------------------------------------
 }

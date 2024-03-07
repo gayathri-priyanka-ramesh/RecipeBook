@@ -87,6 +87,7 @@
               [(ngModel)]="searchQuery"
               name="searchQuery"
               required
+              (ngModelChange)="clearValidation()"
             />
             <button type="submit" class="material-symbols-outlined">
               search
@@ -95,7 +96,7 @@
           <!-- -------------------------End of Search Input Field------------------------- -->
 
           <!-- -------------------------Form Validation Warning------------------------- -->
-          <div class="validation"></div>
+          <div class="validation">{{ validationMessage }}</div>
           <!-- -------------------------End of Form Validation Warning------------------------- -->
 
           <!-- -------------------------End of Search Options------------------------- -->
@@ -106,9 +107,9 @@
                 type="radio"
                 name="searchType"
                 value="category"
-                ngModel
-                #searchType="ngModel"
+                [(ngModel)]="searchType"
                 required
+                (ngModelChange)="clearValidation()"
               />
               Category
             </label>
@@ -118,9 +119,9 @@
                 type="radio"
                 name="searchType"
                 value="area"
-                ngModel
-                #searchType="ngModel"
+                [(ngModel)]="searchType"
                 required
+                (ngModelChange)="clearValidation()"
               />
               Cuisine
             </label>
@@ -130,9 +131,9 @@
                 type="radio"
                 name="searchType"
                 value="ingredient"
-                ngModel
-                #searchType="ngModel"
+                [(ngModel)]="searchType"
                 required
+                (ngModelChange)="clearValidation()"
               />
               Ingredient
             </label>
@@ -142,9 +143,9 @@
                 type="radio"
                 name="searchType"
                 value="food"
-                ngModel
-                #searchType="ngModel"
+                [(ngModel)]="searchType"
                 required
+                (ngModelChange)="clearValidation()"
               />
               Food
             </label>

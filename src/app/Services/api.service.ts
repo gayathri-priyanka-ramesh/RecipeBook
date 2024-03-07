@@ -10,7 +10,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Category List--------------------------------------------------
   getCategories(): Observable<any> {
-    console.log('API Service ---> getCategories');
+    // console.log('API Service ---> getCategories');
     return this.http.get(
       'https://www.themealdb.com/api/json/v1/1/categories.php'
     );
@@ -19,7 +19,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Cuisine List--------------------------------------------------
   getAreas(): Observable<any> {
-    console.log('API Service ---> getAreas');
+    // console.log('API Service ---> getAreas');
     return this.http.get(
       'https://www.themealdb.com/api/json/v1/1/list.php?a=list'
     );
@@ -28,7 +28,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Ingredient List--------------------------------------------------
   getIngredients(): Observable<any> {
-    console.log('API Service ---> getIngredients');
+    // console.log('API Service ---> getIngredients');
     return this.http.get(
       'https://www.themealdb.com/api/json/v1/1/list.php?i=list'
     );
@@ -37,7 +37,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Food Based on Category--------------------------------------------------
   getFoodsByCategory(category: string): Observable<any> {
-    console.log('API Service ---> getFoodsByCategory');
+    // console.log('API Service ---> getFoodsByCategory');
     return this.http.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?c=${category}`
     );
@@ -46,7 +46,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Food Based on Cuisine--------------------------------------------------
   getFoodsByArea(area: string): Observable<any> {
-    console.log('API Service ---> getFoodsByArea');
+    // console.log('API Service ---> getFoodsByArea');
     return this.http.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?a=${area}`
     );
@@ -55,7 +55,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Food Based on Ingredient--------------------------------------------------
   getFoodsByIngredient(ingredient: string): Observable<any> {
-    console.log('API Service ---> getFoodsByIngredient');
+    // console.log('API Service ---> getFoodsByIngredient');
     return this.http.get(
       `https://www.themealdb.com/api/json/v1/1/filter.php?i=${ingredient}`
     );
@@ -64,7 +64,7 @@ export class ApiService {
 
   // --------------------------------------------------GET Food By Name--------------------------------------------------
   getRecipeByName(name: string): Observable<any> {
-    console.log('API Service ---> getRecipeByName');
+    // console.log('API Service ---> getRecipeByName');
     return this.http.get(
       `https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`
     );
