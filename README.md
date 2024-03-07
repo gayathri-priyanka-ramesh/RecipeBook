@@ -1,6 +1,29 @@
-# RecipeBook
+# RecipeBook - Culinary Chronicles
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+[Live Link](https://culinary-chronicles.vercel.app/)
+
+## Project Description
+‘**Culinary Chronicles**’ is a dynamic and user-friendly **Recipe Book** web application designed to cater to the diverse culinary interests of users. Leveraging modern technologies and an intuitive user interface, this application provides a seamless experience for discovering, exploring, and creating culinary delights.
+
+### Tech Stack & API Integration
+- The application is developed using [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0..
+- Responsive Design is achieved using Media Queries in SASS.
+- Integrated with TheMealDB API’s extensive database of recipes and culinary information. The following APIs are utilized:
+- List Categories API
+- List Cuisines API
+- List Ingredients API
+- Filter Food by Category API
+- Filter Food by Cuisine API
+- Filter Food by Ingredient API
+- Get Recipe by Food Name API
+
+### Features
+- Search functionality based on category name, cuisine name, ingredient name, and food name enable users to find recipes effortlessly.
+- Comprehensive lists of food categories, cuisines, and ingredients offer a curated selection to suit every palate.
+- Interactive filtering options allow users to refine their search results based on specific categories, cuisines, or ingredients.
+- Detailed recipe pages provide comprehensive information including ingredients, measurements, and preparation steps for each dish.
+
+<hr/>
 
 ## Development server
 
