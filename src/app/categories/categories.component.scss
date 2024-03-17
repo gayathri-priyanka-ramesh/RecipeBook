@@ -18,6 +18,11 @@
       -moz-border-radius: 30px;
       -ms-border-radius: 30px;
       -o-border-radius: 30px;
+      transition: 0.3s ease-in-out;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      -ms-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
       &:nth-of-type(2n) {
         background: linear-gradient(
           100deg,
@@ -67,11 +72,7 @@
       }
 
       &:hover {
-        transform: scale(0.95);
-        -webkit-transform: scale(0.95);
-        -moz-transform: scale(0.95);
-        -ms-transform: scale(0.95);
-        -o-transform: scale(0.95);
+        scale: 0.95;
       }
     }
   }

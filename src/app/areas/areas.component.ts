@@ -35,7 +35,7 @@ export class AreasComponent implements OnInit {
 
   // --------------------------------------------------Emit Cuisine Click--------------------------------------------------
   onClick(event: any) {
-    // console.log('Area Click  ---> ',event);
+    // console.log('Area Click  ---> ', event);
     this.scrollClick.emit();
   }
   // --------------------------------------------------End of Emit Cuisine Click--------------------------------------------------

@@ -62,7 +62,7 @@ section {
   }
   h3 {
     font-weight: 600;
-    font-size: 18px;
+    font-size: clamp(10px, 5vw, 20px);
   }
   span {
     font-weight: 600;

@@ -27,6 +27,11 @@
         background-position: center;
         background-size: cover;
         scale: (1.5);
+        transition: 0.3s ease-in-out;
+        -webkit-transition: 0.3s ease-in-out;
+        -moz-transition: 0.3s ease-in-out;
+        -ms-transition: 0.3s ease-in-out;
+        -o-transition: 0.3s ease-in-out;
         a {
           width: 100%;
           aspect-ratio: inherit;
@@ -40,7 +45,6 @@
           padding: 0.5em;
           h3 {
             color: $White;
-            font-size: 20px;
             -webkit-text-stroke-width: 1.5px;
             -webkit-text-stroke-color: $Black;
           }

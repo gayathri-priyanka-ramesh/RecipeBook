@@ -12,13 +12,13 @@
   <!-- -------------------------End of Invalid Search Modal Trigger sButton------------------------- -->
 
   <!-- -------------------------Invalid Search Modal Content------------------------- -->
-  <dialog id="dialog">
-    <div class="dialog-area row">
+  <dialog id="dialog" (click)="closeDialog($event)">
+    <div class="dialog-area row" #dialogArea>
       <!-- -------------------------Modal Dismiss Button------------------------- -->
       <div class="close-div">
         <span
           class="material-symbols-outlined menu-close"
-          aria-label="close"
+          #closeDialogBtn
           type="button"
           routerLink="/"
         >

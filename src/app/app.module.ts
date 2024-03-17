@@ -16,10 +16,10 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { FoodComponent } from './food/food.component';
-import { RecipeComponent } from './recipe/recipe.component';
 import { AreasComponent } from './areas/areas.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { FoodComponent } from './food/food.component';
+import { RecipeComponent } from './recipe/recipe.component';
 // --------------------------------------------------End of Components--------------------------------------------------
 
 @NgModule({

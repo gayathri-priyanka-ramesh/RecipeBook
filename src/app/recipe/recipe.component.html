@@ -10,11 +10,12 @@
 <!-- --------------------------------------------------End of Recipe Modal Trigger Button-------------------------------------------------- -->
 
 <!-- --------------------------------------------------Recipe Modal-------------------------------------------------- -->
-<dialog id="dialog">
-  <div class="dialog-area row">
+<dialog id="dialog" (click)="closeDialog($event)">
+  <div class="dialog-area row" #dialogArea>
     <!-- -------------------------Modal Dismiss Button------------------------- -->
     <div class="close-div">
       <span
+        #closeDialogBtn
         class="material-symbols-outlined menu-close"
         aria-label="close"
         type="button"

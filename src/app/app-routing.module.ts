@@ -6,10 +6,10 @@ import { RouterModule, Routes } from '@angular/router';
 // --------------------------------------------------Components--------------------------------------------------
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { CategoriesComponent } from './categories/categories.component';
-import { FoodComponent } from './food/food.component';
-import { RecipeComponent } from './recipe/recipe.component';
 import { AreasComponent } from './areas/areas.component';
 import { IngredientsComponent } from './ingredients/ingredients.component';
+import { FoodComponent } from './food/food.component';
+import { RecipeComponent } from './recipe/recipe.component';
 // --------------------------------------------------End of Components--------------------------------------------------
 
 const routes: Routes = [

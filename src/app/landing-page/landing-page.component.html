@@ -1,7 +1,7 @@
 <!-- --------------------------------------------------Header-------------------------------------------------- -->
 <header class="row">
   <!-- -------------------------Brand------------------------- -->
-  <a routerLink="/" class="logo">
+  <a routerLink="/" (click)="scroll('home')" class="logo">
     <img
       src="../../assets/images/culinary-chronicles-logo.png"
       alt="Culinary Chronicles Logo"
@@ -197,7 +197,7 @@
   <!-- -------------------------Brand and Navigation------------------------- -->
   <div class="footer row container">
     <!-- -------------------------Brand------------------------- -->
-    <a routerLink="/" class="logo">
+    <a routerLink="/" (click)="scroll('home')" class="logo">
       <img
         src="../../assets/images/culinary-chronicles-logo.png"
         alt="Culinary Chronicles Logo"
@@ -250,7 +250,13 @@
 
   <!-- -------------------------Copy Rights------------------------- -->
   <p class="copy-rights">
-    &copy; Culinary Chronicles 2024. All Rights Reserved
+    &copy; Culinary Chronicles 2024. All Rights Reserved <br />
+    Desiged by
+    <a
+      href="https://www.linkedin.com/in/gayathri-priyanka-ramesh"
+      target="_blank"
+      >Gayathri Priyanka Ramesh</a
+    >
   </p>
   <!-- -------------------------End of Copy Rights------------------------- -->
 </footer>

@@ -10,6 +10,8 @@ import { ApiService } from '../Services/api.service';
 export class RecipeComponent implements OnInit {
   // -------------------------View Required Variable-------------------------
   @ViewChild('openDialogBtn') openDialogBtn!: ElementRef;
+  @ViewChild('closeDialogBtn') closeDialogBtn!: ElementRef;
+  @ViewChild('dialogArea') dialogArea!: ElementRef;
   // -------------------------End of View Required Variable-------------------------
 
   // -------------------------Component Info-------------------------
@@ -60,7 +62,7 @@ export class RecipeComponent implements OnInit {
       // -------------------------Recipe Available-------------------------
       if (data.meals) {
         this.recipe = data.meals[0];
-        // console.log('Recipe  ---> ', this.recipe);
+        console.log('Recipe  ---> ', this.recipe);
         for (let i = 1; i <= 20; i++) {
           const ingredientKey = 'strIngredient' + i;
           const ingredient = this.recipe[ingredientKey];
@@ -88,6 +90,13 @@ export class RecipeComponent implements OnInit {
   }
 
   // --------------------------------------------------Dismiss Recipe Modal--------------------------------------------------
+  // -------------------------Handle Close Dialog-------------------------
+  closeDialog(event: any) {
+    // console.log('event.target  ---> ', event.target);
+    if (!this.dialogArea.nativeElement.contains(event.target))
+      this.closeDialogBtn.nativeElement.click();
+  }
+  // -------------------------Handle Recipe Query-------------------------
   onCloseDialog(): void {
     if (this.currentCategory) {
       this.router.navigate(['/categoryFilter', this.currentCategory]);

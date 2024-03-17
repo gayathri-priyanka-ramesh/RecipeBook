@@ -28,12 +28,15 @@ export class LandingPageComponent implements AfterViewInit {
   constructor(private router: Router, private cdr: ChangeDetectorRef) {}
 
   // --------------------------------------------------Navigation--------------------------------------------------
-  // -------------------------Navigation Menu Toggle-------------------------
-  toggleMenu() {
+  toggleActiveState() {
     const toggleMenu = document.querySelector('.toggleMenu');
     const navigation = document.querySelector('.navigation');
     toggleMenu?.classList.toggle('active');
     navigation?.classList.toggle('active');
+  }
+  // -------------------------Navigation Menu Toggle-------------------------
+  toggleMenu() {
+    this.toggleActiveState();
     this.toggleMenuOpen = true;
     // console.log('Toggle Clicked');
   }
@@ -41,10 +44,7 @@ export class LandingPageComponent implements AfterViewInit {
   navigationClose() {
     if (this.toggleMenuOpen) {
       // console.log('Toogle Menu is not Closed  ---> ', this.toggleMenuOpen);
-      const toggleMenu = document.querySelector('.toggleMenu');
-      const navigation = document.querySelector('.navigation');
-      toggleMenu?.classList.toggle('active');
-      navigation?.classList.toggle('active');
+      this.toggleActiveState();
       this.toggleMenuOpen = false;
       // console.log('Navigation Close Successful');
     } else {
@@ -129,11 +129,4 @@ export class LandingPageComponent implements AfterViewInit {
     this.validationMessage = '';
   }
   // --------------------------------------------------End of Recipe Search--------------------------------------------------
-
-  // --------------------------------------------------Trigger Recipe Modal--------------------------------------------------
-  showRecipeDialog: boolean = false;
-  openRecipeDialog() {
-    this.showRecipeDialog = true;
-  }
-  // --------------------------------------------------End of Trigger Recipe Modal--------------------------------------------------
 }

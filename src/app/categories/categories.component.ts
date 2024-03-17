@@ -35,7 +35,7 @@ export class CategoriesComponent implements OnInit {
 
   // --------------------------------------------------Emit Category Click--------------------------------------------------
   onClick(event: any) {
-    // console.log('Category Click');
+    // console.log('Category Click  ---> ', event);
     this.scrollClick.emit();
   }
   // --------------------------------------------------End of Emit Category Click--------------------------------------------------

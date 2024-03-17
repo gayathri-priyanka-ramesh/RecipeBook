@@ -10,6 +10,8 @@ import { ApiService } from '../Services/api.service';
 export class FoodComponent implements OnInit {
   // -------------------------View Required Variable-------------------------
   @ViewChild('openDialogBtn') openDialogBtn!: ElementRef;
+  @ViewChild('closeDialogBtn') closeDialogBtn!: ElementRef;
+  @ViewChild('dialogArea') dialogArea!: ElementRef;
   // -------------------------End of View Required Variable-------------------------
 
   // -------------------------Component Info-------------------------
@@ -42,12 +44,7 @@ export class FoodComponent implements OnInit {
           // console.log('Data  ---> ', data);
           this.foods = data.meals;
           // console.log('Food  ---> ', this.foods);
-          if (!this.foods) {
-            // console.log('Food not available in Category');
-            this.invalidSearch = true;
-            this.openDialogBtn.nativeElement.click();
-            // console.log('Dialog Opened');
-          }
+          this.handleInvalidSearch(this.foods);
         });
     }
 
@@ -58,12 +55,7 @@ export class FoodComponent implements OnInit {
         // console.log('Data  ---> ', data);
         this.foods = data.meals;
         // console.log('Food  ---> ', this.foods);
-        if (!this.foods) {
-          // console.log('Food not available in Area');
-          this.invalidSearch = true;
-          this.openDialogBtn.nativeElement.click();
-          // console.log('Dialog Opened');
-        }
+        this.handleInvalidSearch(this.foods);
       });
     }
 
@@ -76,14 +68,30 @@ export class FoodComponent implements OnInit {
           // console.log('Data  ---> ', data);
           this.foods = data.meals;
           // console.log('Food  ---> ', this.foods);
-          if (!this.foods) {
-            // console.log('Food not available in Ingredient');
-            this.invalidSearch = true;
-            this.openDialogBtn.nativeElement.click();
-            // console.log('Dialog Opened');
-          }
+          this.handleInvalidSearch(this.foods);
         });
     }
   }
   // --------------------------------------------------End of Retrieve Food Data Based on Type--------------------------------------------------
+
+  // --------------------------------------------------Invalid Search Type--------------------------------------------------
+  // -------------------------Handle Invalid Search-------------------------
+  handleInvalidSearch(foodArray: any[]) {
+    if (!foodArray) {
+      // console.log('Food not available');
+      this.invalidSearch = true;
+      this.openDialogBtn.nativeElement.click();
+      // console.log('Dialog Opened');
+    }
+  }
+  // -------------------------End of Handle Invalid Search-------------------------
+
+  // -------------------------Handle Close Dialog-------------------------
+  closeDialog(event: any) {
+    // console.log('event.target  ---> ', event.target);
+    if (!this.dialogArea.nativeElement.contains(event.target))
+      this.closeDialogBtn.nativeElement.click();
+  }
+  // -------------------------End of Handle Close Dialog-------------------------
+  // --------------------------------------------------End of Invalid Search Type--------------------------------------------------
 }
